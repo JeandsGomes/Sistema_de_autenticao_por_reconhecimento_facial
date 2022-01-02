@@ -368,7 +368,22 @@ QPushButton:pressed{
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
                 <item>
                  <widget class="QLabel" name="label_4">
                   <property name="minimumSize">
@@ -379,14 +394,14 @@ QPushButton:pressed{
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>100</width>
+                    <width>121</width>
                     <height>16777215</height>
                    </size>
                   </property>
                   <property name="font">
                    <font>
                     <family>Noto Sans Georgian</family>
-                    <pointsize>12</pointsize>
+                    <pointsize>10</pointsize>
                     <weight>75</weight>
                     <bold>true</bold>
                    </font>
@@ -397,7 +412,7 @@ text-align: center;
 }</string>
                   </property>
                   <property name="text">
-                   <string>Imagem 1</string>
+                   <string>Imagem Fontal</string>
                   </property>
                  </widget>
                 </item>
@@ -457,6 +472,21 @@ text-align: center;
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_7">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
                 <item>
                  <widget class="QLabel" name="label_6">
                   <property name="minimumSize">
@@ -467,14 +497,14 @@ text-align: center;
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>100</width>
+                    <width>121</width>
                     <height>16777215</height>
                    </size>
                   </property>
                   <property name="font">
                    <font>
                     <family>Noto Sans Georgian</family>
-                    <pointsize>12</pointsize>
+                    <pointsize>10</pointsize>
                     <weight>75</weight>
                     <bold>true</bold>
                    </font>
@@ -485,7 +515,7 @@ text-align: center;
 }</string>
                   </property>
                   <property name="text">
-                   <string>Imagem 2</string>
+                   <string>45° para Esquerda</string>
                   </property>
                  </widget>
                 </item>
@@ -544,7 +574,22 @@ text-align: center;
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_6">
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
                 <item>
                  <widget class="QLabel" name="label_7">
                   <property name="minimumSize">
@@ -555,14 +600,14 @@ text-align: center;
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>100</width>
+                    <width>121</width>
                     <height>16777215</height>
                    </size>
                   </property>
                   <property name="font">
                    <font>
                     <family>Noto Sans Georgian</family>
-                    <pointsize>12</pointsize>
+                    <pointsize>10</pointsize>
                     <weight>75</weight>
                     <bold>true</bold>
                    </font>
@@ -573,7 +618,7 @@ text-align: center;
 }</string>
                   </property>
                   <property name="text">
-                   <string>Imagem 3</string>
+                   <string>45° para Direita</string>
                   </property>
                  </widget>
                 </item>

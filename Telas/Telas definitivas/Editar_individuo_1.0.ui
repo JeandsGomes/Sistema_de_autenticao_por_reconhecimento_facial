@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>878</width>
-    <height>545</height>
+    <height>540</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,13 +50,13 @@
         <widget class="QLabel" name="label_5">
          <property name="minimumSize">
           <size>
-           <width>185</width>
+           <width>125</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>108</width>
+           <width>125</width>
            <height>16777215</height>
           </size>
          </property>
@@ -74,7 +74,7 @@ text-align: center;
 }</string>
          </property>
          <property name="text">
-          <string>♠ Cadastrar Individuo ♠</string>
+          <string>Editar Cadastro</string>
          </property>
         </widget>
        </item>
@@ -103,18 +103,6 @@ text-align: center;
        <enum>QFrame::Raised</enum>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
        <item>
         <widget class="QFrame" name="frame_2">
          <property name="frameShape">
@@ -138,19 +126,50 @@ text-align: center;
            </spacer>
           </item>
           <item>
-           <widget class="QLabel" name="label">
+           <widget class="QTableWidget" name="tableWidget">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>502</width>
               <height>300</height>
              </size>
             </property>
-            <property name="text">
-             <string/>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
             </property>
-            <property name="pixmap">
-             <pixmap>../imagens/Frame 1.png</pixmap>
-            </property>
+            <column>
+             <property name="text">
+              <string>ID</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Nome</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Email</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Data</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Hora</string>
+             </property>
+            </column>
            </widget>
           </item>
           <item>
@@ -267,6 +286,108 @@ QPushButton:pressed{
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
+           <widget class="QFrame" name="frame_3">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_3">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Noto Sans Georgian</family>
+                 <pointsize>12</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel{
+text-align: center;
+}</string>
+               </property>
+               <property name="text">
+                <string>Buscar</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="login_lineEdit_cpf_3">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-width: 1px;
+border-color: black;
+border-style: solid;
+display: inline-block;
+border-radius: 2px;</string>
+            </property>
+            <property name="inputMask">
+             <string/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="placeholderText">
+             <string>    email</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="login_pushButton_logar">
             <property name="minimumSize">
              <size>
@@ -313,43 +434,34 @@ QPushButton:pressed{
 </string>
             </property>
             <property name="text">
-             <string>Ligar a Camera</string>
+             <string>buscar</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QFrame" name="frame_3">
+           <widget class="QFrame" name="frame_4">
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
             </property>
             <property name="frameShadow">
              <enum>QFrame::Raised</enum>
             </property>
-            <layout class="QFormLayout" name="formLayout">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_3">
-               <property name="minimumSize">
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
                 <size>
-                 <width>91</width>
-                 <height>86</height>
+                 <width>40</width>
+                 <height>20</height>
                 </size>
                </property>
-               <property name="maximumSize">
-                <size>
-                 <width>70</width>
-                 <height>70</height>
-                </size>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="pixmap">
-                <pixmap>../imagens/Frame 19 (1).png</pixmap>
-               </property>
-              </widget>
+              </spacer>
              </item>
-             <item row="0" column="1">
-              <widget class="QFrame" name="frame_10">
+             <item>
+              <widget class="QLabel" name="label_4">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -358,251 +470,106 @@ QPushButton:pressed{
                </property>
                <property name="maximumSize">
                 <size>
-                 <width>16777215</width>
+                 <width>100</width>
                  <height>16777215</height>
                 </size>
                </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
+               <property name="font">
+                <font>
+                 <family>Noto Sans Georgian</family>
+                 <pointsize>12</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
                </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
-                <item>
-                 <widget class="QLabel" name="label_4">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Noto Sans Georgian</family>
-                    <pointsize>12</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLabel{
+               <property name="styleSheet">
+                <string notr="true">QLabel{
 text-align: center;
 }</string>
-                  </property>
-                  <property name="text">
-                   <string>Imagem 1</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="label_9">
-                  <property name="minimumSize">
-                   <size>
-                    <width>24</width>
-                    <height>26</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>22</width>
-                    <height>29</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="pixmap">
-                   <pixmap>../imagens/Group 144.png</pixmap>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_10">
-               <property name="minimumSize">
-                <size>
-                 <width>91</width>
-                 <height>86</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>70</width>
-                 <height>70</height>
-                </size>
                </property>
                <property name="text">
-                <string/>
-               </property>
-               <property name="pixmap">
-                <pixmap>../imagens/Frame 19 (1).png</pixmap>
+                <string>Editar</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
-              <widget class="QFrame" name="frame_12">
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
+             <item>
+              <spacer name="horizontalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
                </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_7">
-                <item>
-                 <widget class="QLabel" name="label_6">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Noto Sans Georgian</family>
-                    <pointsize>12</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLabel{
-text-align: center;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Imagem 2</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="label_11">
-                  <property name="minimumSize">
-                   <size>
-                    <width>24</width>
-                    <height>26</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>22</width>
-                    <height>29</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="pixmap">
-                   <pixmap>../imagens/Group 144.png</pixmap>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_13">
-               <property name="minimumSize">
+               <property name="sizeHint" stdset="0">
                 <size>
-                 <width>91</width>
-                 <height>86</height>
+                 <width>40</width>
+                 <height>20</height>
                 </size>
                </property>
-               <property name="maximumSize">
-                <size>
-                 <width>70</width>
-                 <height>70</height>
-                </size>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="pixmap">
-                <pixmap>../imagens/Frame 19 (1).png</pixmap>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QFrame" name="frame_13">
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_6">
-                <item>
-                 <widget class="QLabel" name="label_7">
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>100</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="font">
-                   <font>
-                    <family>Noto Sans Georgian</family>
-                    <pointsize>12</pointsize>
-                    <weight>75</weight>
-                    <bold>true</bold>
-                   </font>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QLabel{
-text-align: center;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string>Imagem 3</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="label_12">
-                  <property name="minimumSize">
-                   <size>
-                    <width>24</width>
-                    <height>26</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>22</width>
-                    <height>29</height>
-                   </size>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="pixmap">
-                   <pixmap>../imagens/Group 144.png</pixmap>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
+              </spacer>
              </item>
             </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="login_lineEdit_cpf_5">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-width: 1px;
+border-color: black;
+border-style: solid;
+display: inline-block;
+border-radius: 2px;</string>
+            </property>
+            <property name="inputMask">
+             <string/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="placeholderText">
+             <string>    nome</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="login_lineEdit_cpf_4">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-width: 1px;
+border-color: black;
+border-style: solid;
+display: inline-block;
+border-radius: 2px;</string>
+            </property>
+            <property name="inputMask">
+             <string/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="placeholderText">
+             <string>    email</string>
+            </property>
            </widget>
           </item>
           <item>
@@ -652,7 +619,58 @@ QPushButton:pressed{
 </string>
             </property>
             <property name="text">
-             <string>Cadastrar Individuo</string>
+             <string>editar</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="login_pushButton_logar_3">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	border-radius: 5px;
+	border-image: url(:/Close_Image/cil-x.png);
+	background-position: center;
+		
+	color: rgb(240, 233, 249);
+	background-color: rgb(0, 0, 0);
+	
+}
+QPushButton:hover{
+	
+	
+	background-color: rgb(42, 42, 42);
+	color: rgb(240, 233, 249);
+}
+QPushButton:pressed{
+	background-color: rgb(35, 35, 35);
+	color: rgb(200, 200, 200);
+}
+
+</string>
+            </property>
+            <property name="text">
+             <string>remover</string>
             </property>
            </widget>
           </item>

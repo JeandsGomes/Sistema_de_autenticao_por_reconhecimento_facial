@@ -138,18 +138,24 @@ text-align: center;
            </spacer>
           </item>
           <item>
-           <widget class="QLabel" name="label">
+           <widget class="QLabel" name="display">
             <property name="minimumSize">
              <size>
               <width>502</width>
               <height>300</height>
              </size>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
             <property name="text">
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap>../imagens/Frame 1.png</pixmap>
+             <pixmap>../../imagens/Frame 1.png</pixmap>
             </property>
            </widget>
           </item>
@@ -182,7 +188,7 @@ text-align: center;
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
-              <widget class="QPushButton" name="login_pushButton_logar_4">
+              <widget class="QPushButton" name="voltar">
                <property name="minimumSize">
                 <size>
                  <width>60</width>
@@ -267,7 +273,7 @@ QPushButton:pressed{
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QPushButton" name="login_pushButton_logar">
+           <widget class="QPushButton" name="star_camera_pushButton">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -327,7 +333,7 @@ QPushButton:pressed{
             </property>
             <layout class="QFormLayout" name="formLayout">
              <item row="0" column="0">
-              <widget class="QLabel" name="label_3">
+              <widget class="QLabel" name="image_1">
                <property name="minimumSize">
                 <size>
                  <width>91</width>
@@ -344,7 +350,7 @@ QPushButton:pressed{
                 <string/>
                </property>
                <property name="pixmap">
-                <pixmap>../imagens/Frame 19 (1).png</pixmap>
+                <pixmap>../../imagens/Frame 19 (1).png</pixmap>
                </property>
               </widget>
              </item>
@@ -368,7 +374,22 @@ QPushButton:pressed{
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
                 <item>
                  <widget class="QLabel" name="label_4">
                   <property name="minimumSize">
@@ -379,14 +400,14 @@ QPushButton:pressed{
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>100</width>
+                    <width>121</width>
                     <height>16777215</height>
                    </size>
                   </property>
                   <property name="font">
                    <font>
                     <family>Noto Sans Georgian</family>
-                    <pointsize>12</pointsize>
+                    <pointsize>10</pointsize>
                     <weight>75</weight>
                     <bold>true</bold>
                    </font>
@@ -397,12 +418,12 @@ text-align: center;
 }</string>
                   </property>
                   <property name="text">
-                   <string>Imagem 1</string>
+                   <string>Imagem Fontal</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="label_9">
+                 <widget class="QLabel" name="flag_foto_1">
                   <property name="minimumSize">
                    <size>
                     <width>24</width>
@@ -419,7 +440,7 @@ text-align: center;
                    <string/>
                   </property>
                   <property name="pixmap">
-                   <pixmap>../imagens/Group 144.png</pixmap>
+                   <pixmap>../../imagens/Group 144.png</pixmap>
                   </property>
                  </widget>
                 </item>
@@ -427,7 +448,7 @@ text-align: center;
               </widget>
              </item>
              <item row="1" column="0">
-              <widget class="QLabel" name="label_10">
+              <widget class="QLabel" name="Image_2">
                <property name="minimumSize">
                 <size>
                  <width>91</width>
@@ -444,7 +465,7 @@ text-align: center;
                 <string/>
                </property>
                <property name="pixmap">
-                <pixmap>../imagens/Frame 19 (1).png</pixmap>
+                <pixmap>../../imagens/Frame 19 (1).png</pixmap>
                </property>
               </widget>
              </item>
@@ -457,6 +478,21 @@ text-align: center;
                 <enum>QFrame::Raised</enum>
                </property>
                <layout class="QHBoxLayout" name="horizontalLayout_7">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
                 <item>
                  <widget class="QLabel" name="label_6">
                   <property name="minimumSize">
@@ -467,14 +503,14 @@ text-align: center;
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>100</width>
+                    <width>121</width>
                     <height>16777215</height>
                    </size>
                   </property>
                   <property name="font">
                    <font>
                     <family>Noto Sans Georgian</family>
-                    <pointsize>12</pointsize>
+                    <pointsize>10</pointsize>
                     <weight>75</weight>
                     <bold>true</bold>
                    </font>
@@ -485,12 +521,12 @@ text-align: center;
 }</string>
                   </property>
                   <property name="text">
-                   <string>Imagem 2</string>
+                   <string>Olhar Esquerda</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="label_11">
+                 <widget class="QLabel" name="flag_foto_2">
                   <property name="minimumSize">
                    <size>
                     <width>24</width>
@@ -507,7 +543,7 @@ text-align: center;
                    <string/>
                   </property>
                   <property name="pixmap">
-                   <pixmap>../imagens/Group 144.png</pixmap>
+                   <pixmap>../../imagens/Group 144.png</pixmap>
                   </property>
                  </widget>
                 </item>
@@ -515,7 +551,7 @@ text-align: center;
               </widget>
              </item>
              <item row="2" column="0">
-              <widget class="QLabel" name="label_13">
+              <widget class="QLabel" name="Image_3">
                <property name="minimumSize">
                 <size>
                  <width>91</width>
@@ -532,7 +568,7 @@ text-align: center;
                 <string/>
                </property>
                <property name="pixmap">
-                <pixmap>../imagens/Frame 19 (1).png</pixmap>
+                <pixmap>../../imagens/Frame 19 (1).png</pixmap>
                </property>
               </widget>
              </item>
@@ -544,7 +580,22 @@ text-align: center;
                <property name="frameShadow">
                 <enum>QFrame::Raised</enum>
                </property>
-               <layout class="QHBoxLayout" name="horizontalLayout_6">
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
                 <item>
                  <widget class="QLabel" name="label_7">
                   <property name="minimumSize">
@@ -555,14 +606,14 @@ text-align: center;
                   </property>
                   <property name="maximumSize">
                    <size>
-                    <width>100</width>
+                    <width>121</width>
                     <height>16777215</height>
                    </size>
                   </property>
                   <property name="font">
                    <font>
                     <family>Noto Sans Georgian</family>
-                    <pointsize>12</pointsize>
+                    <pointsize>10</pointsize>
                     <weight>75</weight>
                     <bold>true</bold>
                    </font>
@@ -573,12 +624,12 @@ text-align: center;
 }</string>
                   </property>
                   <property name="text">
-                   <string>Imagem 3</string>
+                   <string>Olhar Direita</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLabel" name="label_12">
+                 <widget class="QLabel" name="flag_foto_3">
                   <property name="minimumSize">
                    <size>
                     <width>24</width>
@@ -595,7 +646,7 @@ text-align: center;
                    <string/>
                   </property>
                   <property name="pixmap">
-                   <pixmap>../imagens/Group 144.png</pixmap>
+                   <pixmap>../../imagens/Group 144.png</pixmap>
                   </property>
                  </widget>
                 </item>
@@ -606,7 +657,7 @@ text-align: center;
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="login_pushButton_logar_2">
+           <widget class="QPushButton" name="cadastrar_pushButton_imagens">
             <property name="minimumSize">
              <size>
               <width>0</width>
