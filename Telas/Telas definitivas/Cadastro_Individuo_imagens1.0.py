@@ -331,6 +331,8 @@ class Ui_MainWindow(object):
         self.armazenando_image_2 = None #2° Imagens capturadas do rosto
         self.armazenando_image_3= None #3° Imagens capturadas do rosto
 
+        self.displays = [self.image_1,self.Image_2,self.Image_3]
+
         self.cont_aramzena_image = 0 #Contador de onde vai ficar a imagem
 
 
@@ -342,14 +344,28 @@ class Ui_MainWindow(object):
             :return:
         """
         if self.started:
+            frame_flag_negativa = cv2.imread("../../imagens/Group 144.png")
+            frame_flag_negativa = cv2.cvtColor(frame_flag_negativa, cv2.COLOR_BGR2RGB)
+            flag = QImage(frame_flag_negativa, frame_flag_negativa.shape[1], frame_flag_negativa.shape[0],
+                          frame_flag_negativa.strides[0], QImage.Format_RGB888)
+
             self.started = False
             self.star_camera_pushButton.setText('Ligar a Camera')
+
+            self.flag_foto_1.setPixmap(QtGui.QPixmap.fromImage(flag))
+            self.flag_foto_2.setPixmap(QtGui.QPixmap.fromImage(flag))
+            self.flag_foto_3.setPixmap(QtGui.QPixmap.fromImage(flag))
+
             self.armazenando_image_1 = None  # 1° Imagens capturadas do rosto
             self.armazenando_image_2 = None  # 2° Imagens capturadas do rosto
             self.armazenando_image_3 = None  # 3° Imagens capturadas do rosto
-            self.setPhoto_imagem(cv2.imread("../../imagens/Frame 19 (1).png"), 1)
-            self.setPhoto_imagem(cv2.imread("../../imagens/Frame 19 (1).png"), 2)
-            self.setPhoto_imagem(cv2.imread("../../imagens/Frame 19 (1).png"), 3)
+
+            self.setPhoto_imagem(cv2.imread("../../imagens/Frame 19 (1).png"), self.displays[0])
+            self.setPhoto_imagem(cv2.imread("../../imagens/Frame 19 (1).png"), self.displays[1])
+            self.setPhoto_imagem(cv2.imread("../../imagens/Frame 19 (1).png"), self.displays[2])
+
+            self.cont_aramzena_image = 0
+
         else:
             self.started = True
             self.star_camera_pushButton.setText('Resetar Captura')
@@ -398,8 +414,32 @@ class Ui_MainWindow(object):
                 #Armazenar as imagens dos rostos detectados
                 #Armazenar as imagens dos rostos detectados
 
-                self.setPhoto_imagem(captura, self.cont_aramzena_image)
-                self.cont_aramzena_image += 1
+                frame_flag_positiva = cv2.imread("../../imagens/Group 143.png")
+                frame_flag_positiva = cv2.cvtColor(frame_flag_positiva, cv2.COLOR_BGR2RGB)
+                flag = QImage(frame_flag_positiva, frame_flag_positiva.shape[1], frame_flag_positiva.shape[0],
+                              frame_flag_positiva.strides[0], QImage.Format_RGB888)
+
+
+
+                if self.cont_aramzena_image == 0:
+                    self.setPhoto_imagem(captura, self.displays[0],height=90, width=90)
+                    self.cont_aramzena_image += 1
+                    self.flag_foto_1.setPixmap(QtGui.QPixmap.fromImage(flag))
+                    QMessageBox.information(None, 'Foto Captuirada', 'Captura da 1 foto!')
+
+
+                elif self.cont_aramzena_image == 1:
+                    self.setPhoto_imagem(captura, self.displays[1],height=90, width=90)
+                    self.cont_aramzena_image += 1
+                    self.flag_foto_2.setPixmap(QtGui.QPixmap.fromImage(flag))
+                    QMessageBox.information(None, 'Foto Captuirada', 'Captura da 2 foto!')
+
+
+                elif self.cont_aramzena_image == 2:
+                    self.setPhoto_imagem(captura, self.displays[2],height=90, width=90)
+                    self.cont_aramzena_image += 1
+                    self.flag_foto_3.setPixmap(QtGui.QPixmap.fromImage(flag))
+                    QMessageBox.information(None, 'Foto Captuirada', 'Captura da 3 foto!')
 
 
 
@@ -438,7 +478,7 @@ class Ui_MainWindow(object):
         image = QImage(frame,frame.shape[1],frame.shape[0],frame.strides[0],QImage.Format_RGB888)
         self.display.setPixmap(QtGui.QPixmap.fromImage(image))
 
-    def setPhoto_imagem(self,image,flag):
+    def setPhoto_imagem(self,image,display,height=None,width=None):
         """
             Essa função vair utilizar a imagem passadapor parametro realizar o
             preprocessamento ajustando seu diametro e inserindo no display da
@@ -448,23 +488,12 @@ class Ui_MainWindow(object):
         """
         #self.tmp = image
         image_copy = image
-        image = imutils.resize(image, height=90, width=90)
+        if height != None:
+            image = imutils.resize(image, height=height, width=width)
         frame = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         image = QImage(frame,frame.shape[1],frame.shape[0],frame.strides[0],QImage.Format_RGB888)
         #cv2.imwrite('teste_2.png', image)
-
-        if flag == 1:
-            self.armazenando_image_1 = image_copy
-            self.image_1.setPixmap(QtGui.QPixmap.fromImage(image))
-            QMessageBox.information(None, 'Foto Captuirada', 'Captura da 1 foto!')
-        if flag == 2:
-            self.armazenando_image_2 = image_copy
-            self.Image_2.setPixmap(QtGui.QPixmap.fromImage(image))
-            QMessageBox.information(None, 'Foto Captuirada', 'Captura da 2 foto!')
-        if flag == 3:
-            self.armazenando_image_3 = image_copy
-            self.Image_3.setPixmap(QtGui.QPixmap.fromImage(image))
-            QMessageBox.information(None, 'Foto Captuirada', 'Captura da 3 foto!')
+        display.setPixmap(QtGui.QPixmap.fromImage(image))
 
 
     def update(self):
