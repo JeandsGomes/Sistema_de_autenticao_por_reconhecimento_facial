@@ -279,7 +279,7 @@ border-radius: 2px;</string>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="login_pushButton_logar_2">
+           <widget class="QPushButton" name="cadstrar_idv_dados_pushButton_cadastrar">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -325,7 +325,7 @@ QPushButton:pressed{
 </string>
             </property>
             <property name="text">
-             <string>Cadastrar Fotos</string>
+             <string>Cadastrar Dados</string>
             </property>
            </widget>
           </item>
@@ -410,7 +410,7 @@ text-align: center;
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
-           <widget class="QPushButton" name="login_pushButton_entrar_cadastro">
+           <widget class="QPushButton" name="cadastrar_idv_pushButton_voltar_menu_inicial">
             <property name="maximumSize">
              <size>
               <width>300</width>

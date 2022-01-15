@@ -276,7 +276,7 @@ border-radius: 2px;</string>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="login_pushButton_logar">
+           <widget class="QPushButton" name="cadastro_pushButton_cadastrar">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -471,7 +471,7 @@ text-align: center;
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
-           <widget class="QPushButton" name="login_pushButton_entrar_cadastro">
+           <widget class="QPushButton" name="cadastro_pushButton_entrar_login">
             <property name="maximumSize">
              <size>
               <width>300</width>

@@ -149,7 +149,7 @@ text-align: center;
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap>../imagens/Frame 1.png</pixmap>
+             <pixmap>../../imagens/Frame 1.png</pixmap>
             </property>
            </widget>
           </item>
@@ -182,7 +182,7 @@ text-align: center;
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
-              <widget class="QPushButton" name="login_pushButton_logar_4">
+              <widget class="QPushButton" name="rec_facial_pushButton_voltar">
                <property name="minimumSize">
                 <size>
                  <width>60</width>
@@ -382,7 +382,7 @@ text-align: center;
                 <string/>
                </property>
                <property name="pixmap">
-                <pixmap>../imagens/Frame 19 (1).png</pixmap>
+                <pixmap>../../imagens/Frame 19 (1).png</pixmap>
                </property>
               </widget>
              </item>
