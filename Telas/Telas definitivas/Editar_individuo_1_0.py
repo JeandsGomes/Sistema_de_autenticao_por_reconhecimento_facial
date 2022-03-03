@@ -7,6 +7,13 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.uic import loadUi
+from PyQt5.QtWidgets import QFileDialog
+
+from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
+from PyQt5.QtCore import QCoreApplication
+
+from PyQt5.QtGui import QImage
 
 class editar_individuo(object):
     def setupUi(self, MainWindow):
@@ -315,6 +322,43 @@ class editar_individuo(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        self.editar_pushButton_buscar.clicked.connect(self.button_search_individuo)
+        self.edita_pushButton_editar.clicked.connect(self.button_update_individual_data)
+
+    def load_metodos(self,identity_colection):
+        self.identity_colection = identity_colection
+
+    def search_individuo(self,email):
+        query = {'email':email}
+        return self.identity_colection.find_one(query)
+
+    def button_search_individuo(self):
+        email = self.login_lineEdit_cpf_3.text()
+        data = self.search_individuo(email)
+        
+        if(data != None):
+            # Nome
+            self.login_lineEdit_cpf_5.setText(data['nome'])
+            # Email
+            self.login_lineEdit_cpf_4.setText(data['email'])
+        else:
+            QMessageBox.information(None, 'Editar Individuo', 'Individuo Não encontrado.')
+
+    def update_individual_data(self,email,new_name,new_email):
+        present_data = {'email': email}
+        new_data = {'$set':{'nome':new_name,'email':new_email}}
+        self.identity_colection.update_many(present_data,new_data)
+
+    def button_update_individual_data(self):
+        # Search Email
+        email = self.login_lineEdit_cpf_3.text()
+        # Nome
+        new_name = self.login_lineEdit_cpf_5.text()
+        # Email
+        new_email = self.login_lineEdit_cpf_4.text()
+        self.update_individual_data(email,new_name,new_email)
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate

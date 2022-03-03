@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'Reconhecimento_Facial_1.0.ui'
+# Form implementation generated from reading ui file '.\Reconhecimento_Facial_1.0.ui'
 #
 # Created by: PyQt5 UI code generator 5.9.2
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QFileDialog
 
-from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QMessageBox
+from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox
 from PyQt5.QtCore import QCoreApplication
 
 from PyQt5.QtGui import QImage
@@ -19,6 +20,9 @@ import time
 import numpy as np
 faceCascade = cv2.CascadeClassifier('../../modelos_e_XLM/haarcascade_frontalface_default.xml')
 import numpy as np
+from sklearn.neighbors import BallTree
+
+from datetime import datetime
 
 class reconhecimento_facial_individuo(object):
     def setupUi(self, MainWindow):
@@ -71,12 +75,12 @@ class reconhecimento_facial_individuo(object):
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_3.addItem(spacerItem2)
-        self.label = QtWidgets.QLabel(self.frame_2)
-        self.label.setMinimumSize(QtCore.QSize(502, 300))
-        self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("../../imagens/Frame 1.png"))
-        self.label.setObjectName("label")
-        self.verticalLayout_3.addWidget(self.label)
+        self.display_camera = QtWidgets.QLabel(self.frame_2)
+        self.display_camera.setMinimumSize(QtCore.QSize(502, 300))
+        self.display_camera.setText("")
+        self.display_camera.setPixmap(QtGui.QPixmap("../../imagens/Frame 1.png"))
+        self.display_camera.setObjectName("display_camera")
+        self.verticalLayout_3.addWidget(self.display_camera)
         spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_3.addItem(spacerItem3)
         self.frame_5 = QtWidgets.QFrame(self.frame_2)
@@ -162,13 +166,13 @@ class reconhecimento_facial_individuo(object):
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_4.addItem(spacerItem7)
-        self.label_2 = QtWidgets.QLabel(self.frame_10)
-        self.label_2.setMinimumSize(QtCore.QSize(91, 86))
-        self.label_2.setMaximumSize(QtCore.QSize(70, 70))
-        self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("../../imagens/Frame 19 (1).png"))
-        self.label_2.setObjectName("label_2")
-        self.horizontalLayout_4.addWidget(self.label_2)
+        self.individuo_identificado = QtWidgets.QLabel(self.frame_10)
+        self.individuo_identificado.setMinimumSize(QtCore.QSize(91, 86))
+        self.individuo_identificado.setMaximumSize(QtCore.QSize(70, 70))
+        self.individuo_identificado.setText("")
+        self.individuo_identificado.setPixmap(QtGui.QPixmap("../../imagens/Frame 19 (1).png"))
+        self.individuo_identificado.setObjectName("individuo_identificado")
+        self.horizontalLayout_4.addWidget(self.individuo_identificado)
         spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_4.addItem(spacerItem8)
         self.verticalLayout.addWidget(self.frame_10)
@@ -219,67 +223,67 @@ class reconhecimento_facial_individuo(object):
 "text-align: center;\n"
 "}")
         self.label_4.setObjectName("label_4")
-        self.label_8 = QtWidgets.QLabel(self.frame_4)
-        self.label_8.setGeometry(QtCore.QRect(90, 0, 201, 16))
-        self.label_8.setMinimumSize(QtCore.QSize(0, 0))
-        self.label_8.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.rec_facial_label_id = QtWidgets.QLabel(self.frame_4)
+        self.rec_facial_label_id.setGeometry(QtCore.QRect(90, 0, 201, 16))
+        self.rec_facial_label_id.setMinimumSize(QtCore.QSize(0, 0))
+        self.rec_facial_label_id.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
         font.setFamily("Noto Sans Georgian")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.label_8.setFont(font)
-        self.label_8.setStyleSheet("QLabel{\n"
+        self.rec_facial_label_id.setFont(font)
+        self.rec_facial_label_id.setStyleSheet("QLabel{\n"
 "text-align: center;\n"
 "}")
-        self.label_8.setObjectName("label_8")
-        self.label_9 = QtWidgets.QLabel(self.frame_4)
-        self.label_9.setGeometry(QtCore.QRect(90, 20, 211, 16))
-        self.label_9.setMinimumSize(QtCore.QSize(0, 0))
-        self.label_9.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.rec_facial_label_id.setObjectName("rec_facial_label_id")
+        self.rec_facial_label_nome = QtWidgets.QLabel(self.frame_4)
+        self.rec_facial_label_nome.setGeometry(QtCore.QRect(90, 20, 211, 16))
+        self.rec_facial_label_nome.setMinimumSize(QtCore.QSize(0, 0))
+        self.rec_facial_label_nome.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
         font.setFamily("Noto Sans Georgian")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.label_9.setFont(font)
-        self.label_9.setStyleSheet("QLabel{\n"
+        self.rec_facial_label_nome.setFont(font)
+        self.rec_facial_label_nome.setStyleSheet("QLabel{\n"
 "text-align: center;\n"
 "}")
-        self.label_9.setObjectName("label_9")
-        self.label_10 = QtWidgets.QLabel(self.frame_4)
-        self.label_10.setGeometry(QtCore.QRect(90, 40, 211, 16))
-        self.label_10.setMinimumSize(QtCore.QSize(0, 0))
-        self.label_10.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.rec_facial_label_nome.setObjectName("rec_facial_label_nome")
+        self.rec_facial_label_email = QtWidgets.QLabel(self.frame_4)
+        self.rec_facial_label_email.setGeometry(QtCore.QRect(90, 40, 211, 16))
+        self.rec_facial_label_email.setMinimumSize(QtCore.QSize(0, 0))
+        self.rec_facial_label_email.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
         font.setFamily("Noto Sans Georgian")
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
-        self.label_10.setFont(font)
-        self.label_10.setStyleSheet("QLabel{\n"
+        self.rec_facial_label_email.setFont(font)
+        self.rec_facial_label_email.setStyleSheet("QLabel{\n"
 "text-align: center;\n"
 "}")
-        self.label_10.setObjectName("label_10")
+        self.rec_facial_label_email.setObjectName("rec_facial_label_email")
         self.verticalLayout.addWidget(self.frame_4)
-        self.tableWidget = QtWidgets.QTableWidget(self.frame)
+        self.rec_facial_tableWidget_mini_historico = QtWidgets.QTableWidget(self.frame)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
-        self.tableWidget.setSizePolicy(sizePolicy)
-        self.tableWidget.setMinimumSize(QtCore.QSize(290, 200))
-        self.tableWidget.setMaximumSize(QtCore.QSize(302, 199))
-        self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(3)
-        self.tableWidget.setRowCount(0)
+        sizePolicy.setHeightForWidth(self.rec_facial_tableWidget_mini_historico.sizePolicy().hasHeightForWidth())
+        self.rec_facial_tableWidget_mini_historico.setSizePolicy(sizePolicy)
+        self.rec_facial_tableWidget_mini_historico.setMinimumSize(QtCore.QSize(290, 200))
+        self.rec_facial_tableWidget_mini_historico.setMaximumSize(QtCore.QSize(302, 199))
+        self.rec_facial_tableWidget_mini_historico.setObjectName("rec_facial_tableWidget_mini_historico")
+        self.rec_facial_tableWidget_mini_historico.setColumnCount(3)
+        self.rec_facial_tableWidget_mini_historico.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(0, item)
+        self.rec_facial_tableWidget_mini_historico.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(1, item)
+        self.rec_facial_tableWidget_mini_historico.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(2, item)
-        self.verticalLayout.addWidget(self.tableWidget)
+        self.rec_facial_tableWidget_mini_historico.setHorizontalHeaderItem(2, item)
+        self.verticalLayout.addWidget(self.rec_facial_tableWidget_mini_historico)
         self.horizontalLayout.addWidget(self.frame)
         self.verticalLayout_2.addWidget(self.frame_7)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -295,6 +299,72 @@ class reconhecimento_facial_individuo(object):
         self.armazenando_image = None #1° Imagens capturadas do rosto
         self.captura = None
 
+        #self.rec_facial_tableWidget_mini_historico.setColumnWidth(0,400)
+        #self.rec_facial_tableWidget_mini_historico.setColumnWidth(1,100)
+        #self.rec_facial_tableWidget_mini_historico.setColumnWidth(2,100)
+
+        self._nome = ''
+        self._historic = []
+        self._cont_frame = 0
+
+
+    # Carregar metodos nescessarios para realizar a identificação de um individuo
+    @property
+    def nome(self):
+        return self._nome
+
+    @nome.setter
+    def nome(self,new_nome):
+        self._nome = new_nome
+
+    def load_metodos(self,metodo_pre_processamento,metodo_extracao_caract,metodo_identificador,encode,colecao_identidades):
+        self.metodo_pre_processamento = metodo_pre_processamento
+        self.metodo_extracao_caract = metodo_extracao_caract
+        self.metodo_identificador = metodo_identificador
+        self.encode = encode
+        self.colecao_identidades = colecao_identidades
+
+    def identificar_individuo(self,img_individuo):
+        img = self.metodo_pre_processamento(img_individuo)
+        features_ind = self.metodo_extracao_caract(img)
+        #print('>>>>TAMANHO>>>>',features_ind.shape)
+        #features_ind_encode = self.encode(features_ind)
+        index = self.metodo_identificador(features_ind)
+        cont = 0
+        print('AQUI >>>>>>',index[1][0])
+        if(index[1][0] <= 50):
+            for individuo in self.colecao_identidades.find():
+                cont += 1
+                if(cont == index[0][0]):
+                    return individuo
+        return None
+
+    def store_data_in_historic(self,email):
+        objeto_data_time = datetime.now()
+        data_hora_now = objeto_data_time.strftime('%d/%m/%Y %H:%M')
+        result= data_hora_now.split()
+        dict = {'Email':email,'Data':result[0],'Hora':result[1]}
+        print(dict)
+        self._historic.append(dict)
+        
+    def load_historic_table(self):
+        
+        row = 0
+        self.rec_facial_tableWidget_mini_historico.setRowCount(len(self._historic))
+        for data_row in self._historic:
+            self.rec_facial_tableWidget_mini_historico.setItem(row, 0, QtWidgets.QTableWidgetItem(data_row['Email']))
+            self.rec_facial_tableWidget_mini_historico.setItem(row, 1, QtWidgets.QTableWidgetItem(data_row['Data']))
+            self.rec_facial_tableWidget_mini_historico.setItem(row, 2, QtWidgets.QTableWidgetItem(data_row['Hora']))
+            row += 1
+        
+    @property
+    def historic(self):
+        return self._historic
+
+    @historic.setter
+    def historic(self,new_historic):
+        self._historic = new_historic
+
     def loadImage(self):
         """
             Esta função inicializara a camera Inicializar a camera.
@@ -302,23 +372,13 @@ class reconhecimento_facial_individuo(object):
         """
         if self.started:
             self.started = False
-            self.cad_img_pushButton_start_camera.setText('Ligar a Camera')
             self.armazenando_image = None  # 1° Imagens capturadas do rosto
-            #self.armazenando_image_2 = None  # 2° Imagens capturadas do rosto
-            #self.armazenando_image_3 = None  # 3° Imagens capturadas do rosto
-            self.setPhoto_imagem(cv2.imread("../../imagens/Frame 19 (1).png"), 0)
-            self.setPhoto_imagem(cv2.imread("../../imagens/Frame 19 (1).png"), 1)
-            self.setPhoto_imagem(cv2.imread("../../imagens/Frame 19 (1).png"), 2)
-            image_flag = cv2.imread("../../imagens/Group 144.png")
-            self.setPhoto(self.flag_foto_1,image_flag,h=27,w=24)
-            self.setPhoto(self.flag_foto_2,image_flag,h=27,w=24)
-            self.setPhoto(self.flag_foto_3,image_flag,h=27,w=24)
+            image_ind = cv2.imread("../../imagens/Frame 19 (1).png")
+            self.setPhoto(self.individuo_identificado,image_ind,h=90,w=90)
             self.flag_captura = 0
-            self.cont_aramzena_image = 0
         else:
             self.flag_captura = 1
             self.started = True
-            self.cad_img_pushButton_start_camera.setText('Desligar a Camera')
 
 
 
@@ -353,15 +413,38 @@ class reconhecimento_facial_individuo(object):
                         h_p = h
                         maior_dimencao = 2**((x-x+w) * (y-y+h))
                         #print('-- CAPTURA --',type(captura))
-                        #print('-- IMAGEM --', type(self.image))
+                        #print('-- IMAGEM --', type(self.image))        
             if x_p != None:
+
                 self.captura = self.image[y_p:y_p + h_p, x_p:x_p + w_p]
                 cv2.rectangle(self.image, (x_p, y_p), (x_p + w_p, y_p + h_p), (20, 255, 57), 5)
-                #cv2.circle(self.image,(x_p, y_p),10,(255, 0, 0), 3)
-                #cv2.circle(self.image,(w_p+x, h_p+y),10, (0, 0, 255), 3)
+                #print('>>>>>AQUI>>>>>',self.captura)
 
-                #Armazenar as imagens dos rostos detectados
-                #Armazenar as imagens dos rostos detectados
+
+                self._cont_frame += 1
+                if(self._cont_frame == 15):
+                    info=self.identificar_individuo(self.captura)
+                    print('1.TRUE >>>>>>>> info != None', info != None)
+                    self._cont_frame = 0
+                    if(info != None):
+                        print('2.TRUE >>>>>>>> self._nome == nada ',self._nome == '')
+                        print('3.TRUE >>>>>>>> self._nome != info[nome]',self._nome != info['nome'])
+                        if((self._nome == '' or self._nome != info['nome'])):
+                            self.rec_facial_label_id.setText(str(info['_id']))
+                            self.rec_facial_label_nome.setText(info['nome'])
+                            self.rec_facial_label_email.setText(info['email'])
+                            self.setPhoto(self.individuo_identificado,np.array(info['img'],np.uint8),h=90,w=90)
+                            self._nome = info['nome']
+                            #print('!!!!!!ENTROU AQUI!!!!!!')
+                            self.store_data_in_historic(info['email'])
+                            self.load_historic_table()
+
+
+                    #cv2.circle(self.image,(x_p, y_p),10,(255, 0, 0), 3)
+                    #cv2.circle(self.image,(w_p+x, h_p+y),10, (0, 0, 255), 3)
+
+                    #Armazenar as imagens dos rostos detectados
+                    #Armazenar as imagens dos rostos detectados
 
 
             if cnt == frames_to_count:
@@ -383,14 +466,6 @@ class reconhecimento_facial_individuo(object):
                     #self.update()
                     self.setPhoto(self.display_camera,self.image)
                     break #Loop break
-
-    def captura_face(self):
-        try:
-            if(self.cont_aramzena_image <= 4):
-                self.setPhoto_imagem(self.captura, self.cont_aramzena_image)
-                self.cont_aramzena_image += 1
-        except:
-            pass
 
     def setPhoto(self,display,image,h=300, w=502):
             
@@ -463,16 +538,15 @@ class reconhecimento_facial_individuo(object):
         self.label_7.setText(_translate("MainWindow", "Email:"))
         self.label_6.setText(_translate("MainWindow", "Nome:"))
         self.label_4.setText(_translate("MainWindow", "ID:"))
-        self.label_8.setText(_translate("MainWindow", "..."))
-        self.label_9.setText(_translate("MainWindow", "..."))
-        self.label_10.setText(_translate("MainWindow", "..."))
-        item = self.tableWidget.horizontalHeaderItem(0)
+        self.rec_facial_label_id.setText(_translate("MainWindow", "..."))
+        self.rec_facial_label_nome.setText(_translate("MainWindow", "..."))
+        self.rec_facial_label_email.setText(_translate("MainWindow", "..."))
+        item = self.rec_facial_tableWidget_mini_historico.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Nome"))
-        item = self.tableWidget.horizontalHeaderItem(1)
+        item = self.rec_facial_tableWidget_mini_historico.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Data"))
-        item = self.tableWidget.horizontalHeaderItem(2)
+        item = self.rec_facial_tableWidget_mini_historico.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "Hora"))
-
 
 if __name__ == "__main__":
     import sys
@@ -482,4 +556,3 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-
