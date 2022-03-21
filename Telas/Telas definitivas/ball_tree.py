@@ -21,7 +21,7 @@ class Ball_Tree():
         novo_treino = np.array(base_de_treino)
         tree = BallTree(novo_treino, leaf_size=2)
         self._tree = tree
-        pickle.dump(self._tree,open('../../modelos_e_XLM/{}.sav'.format(str(id_adm)),'wb'))
+        pickle.dump(self._tree,open('../../../{}.sav'.format(str(id_adm)),'wb'))
         return tree
         
     # Realiza a identificação de 1 imagem usando o tree carregada
@@ -36,5 +36,5 @@ class Ball_Tree():
 
     # Carrega o modelo salvo usando id do adm como chave
     def carregar_modelo(self,id_adm):
-        if('{}.sav'.format(str(id_adm)) in os.listdir('../../modelos_e_XLM')):
-            self._tree = pickle.load(open('../../modelos_e_XLM/{}.sav'.format(id_adm),'rb'))
+        if('{}.sav'.format(str(id_adm)) in os.listdir('../../../')):
+            self._tree = pickle.load(open('../../../{}.sav'.format(id_adm),'rb'))

@@ -73,7 +73,7 @@ class Vgg_Faces():
         #you can download pretrained weights from https://drive.google.com/file/d/1CPSeum3HpopfomUEK1gybeuIVoeJT_Eo/view?usp=sharing
         from keras.models import model_from_json
 
-        model.load_weights('../../modelos_e_XLM/vgg_face_weights.h5')
+        model.load_weights('../../../vgg_face_weights.h5')
 
         vgg_face_descriptor = Model(inputs=model.layers[0].input, outputs=model.layers[-2].output)
 

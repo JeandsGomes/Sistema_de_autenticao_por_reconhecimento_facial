@@ -18,7 +18,7 @@ import imutils
 import cv2
 import time
 import numpy as np
-faceCascade = cv2.CascadeClassifier('../../modelos_e_XLM/haarcascade_frontalface_default.xml')
+faceCascade = cv2.CascadeClassifier('../../../haarcascade_frontalface_default.xml')
 import numpy as np
 from sklearn.neighbors import BallTree
 

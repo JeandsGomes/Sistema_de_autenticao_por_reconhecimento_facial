@@ -275,7 +275,7 @@ class Main(QMainWindow,Ui_Main):
             query = {'adm_id':self._id_adm}
             base_treino = []
             for identity in self._bd.identity_colection.find(query):
-                print('AQUI >>>>',identity['features'])
+                #print('AQUI >>>>',identity['features'])
                 base_treino.append(np.array(identity['features']))
             self._ball_tree.criar_modelo(base_treino,self._id_adm)
 
